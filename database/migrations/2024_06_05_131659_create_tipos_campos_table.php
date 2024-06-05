@@ -14,7 +14,6 @@ return new class extends Migration {
             $table->id();
             $table->string('nome');
             $table->string('descrição')->nullable();
-            $table->foreignId('campos_id')->constrained('campos');
             $table->timestamps();
         });
     }

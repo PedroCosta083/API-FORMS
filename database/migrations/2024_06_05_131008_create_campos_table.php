@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->string('descrição')->nullable();
             $table->string('rotulo')->nullable();
             $table->foreignId('formulario_id')->constrained('formularios');
+            $table->foreignId('tipo_campo_id')->constrained('tipos_campos');
             $table->timestamps();
         });
     }
