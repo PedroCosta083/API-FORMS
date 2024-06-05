@@ -13,10 +13,9 @@ return new class extends Migration {
         Schema::create('campos', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->string('descrição')->nullable();
             $table->string('rotulo')->nullable();
-            $table->foreignId('formulario_id')->constrained('formularios');
-            $table->foreignId('tipo_campo_id')->constrained('tipos_campos');
+            $table->foreignId('formularios_id')->constrained('formularios');
+            $table->foreignId('tipos_campos_id')->constrained('tipos_campos');
             $table->timestamps();
         });
     }
