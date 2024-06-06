@@ -14,14 +14,38 @@ class TipoCampoSeeder extends Seeder
     {
         DB::table('tipos_campos')->insert([
             [
-                'nome' => 'Texto',
-                'descrição' => 'Campo de texto simples',
+                'nome' => 'text',
+                'descricao' => 'Campo de texto simples',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'nome' => 'Seleção',
-                'descrição' => 'Campo com opções selecionáveis',
+                'nome' => 'select',
+                'descricao' => 'Campo com opções selecionáveis',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'nome' => 'radio',
+                'descricao' => 'Botões de rádio onde o usuário pode selecionar apenas uma opção de um conjunto.',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'nome' => 'checkbox',
+                'descricao' => 'Caixa de seleção onde o usuário pode selecionar uma ou mais opções de um conjunto.',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'nome' => 'textarea',
+                'descricao' => 'Área de texto multilinha.',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'nome' => 'email',
+                'descricao' => 'Campo de entrada para endereço de e-mail.',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
