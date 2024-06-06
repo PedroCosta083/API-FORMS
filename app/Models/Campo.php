@@ -6,10 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Campo extends Model
 {
-    protected $hidden = [];
+    protected $hidden = [
+        'update_at', 
+        'created_at',
+        'formularioRelationship',
+        'tipocampoRelationship'
+    ];
 
     protected $appends = [
-
+        'nome', 
+        'rotulo'
     ];
 
     public function formularioRelationship(){
