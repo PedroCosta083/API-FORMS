@@ -2,10 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class OpcaoCampo extends Model
 {
-    use HasFactory;
+    public function campoRelationship(){
+        return $this->hasMany(Campo::class, 'tipos_campos_id');
+    }
+    
+    public function getCampoAttribute(){
+        return $this->campoRelationship;
+    }
+    
 }

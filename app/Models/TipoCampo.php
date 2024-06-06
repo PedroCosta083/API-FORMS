@@ -13,4 +13,11 @@ class TipoCampo extends Model
     public function campoRelationship(){
         return $this->hasMany(Campo::class, 'tipos_campos_id');
     }
+
+    public function getCampoAttribute(){
+        return $this->campoRelationship;
+    }
+
+    
+
 }
