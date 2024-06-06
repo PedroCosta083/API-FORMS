@@ -21,7 +21,7 @@ class Campo extends Model
     }
 
     public function tipocampoRelationship(){
-        return $this->hasOne(TipoCampo::class, 'tipos_campos_id');
+        return $this->belongsTo(TipoCampo::class, 'tipos_campos_id');
     }
 
     public function getTipoCampoAttribute(){
