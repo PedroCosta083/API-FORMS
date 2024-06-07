@@ -24,11 +24,8 @@ class TipoCampo extends Model
     public function getCampoAttribute(){
         return $this->campoRelationship;
     }
-    
-    DB::table('tipos_campos')->insert([
-        'nome' => 'Texto',
-        'descricao' => 'Campo de texto'
-    ]);
+
+    protected $table = 'tipos_campos';
 
 
 

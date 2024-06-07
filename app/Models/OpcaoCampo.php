@@ -25,9 +25,6 @@ class OpcaoCampo extends Model
         return $this->campoRelationship;
     }
 
-    DB::table('opcoes_campos')->insert([
-        'valor' => 'Texto',
-        'rotulo' => 'Campo de texto'
-    ]);
-    
+    protected $table = 'opcoes_campos';
+
 }
