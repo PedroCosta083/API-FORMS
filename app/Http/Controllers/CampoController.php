@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Campo; // Certifique-se de importar o modelo Campo
-use App\Models\TipoCampo; // Certifique-se de importar o modelo TipoCampo
+use App\Models\Campo;
+use App\Models\TipoCampo;
 
 class CampoController extends Controller
 {
@@ -38,23 +38,18 @@ class CampoController extends Controller
 
     public function getAll()
     {
-        // Busca todos os campos do banco de dados
         $campos = Campo::all();
-
-        // Retorna os campos em formato JSON
         return response()->json($campos);
     }
 
     public function getById($id)
     {
-        // Busca o campo do banco de dados
         $campo = Campo::find($id);
 
         if (!$campo) {
             return response()->json(['mensagem' => 'Campo não encontrado'], 404);
         }
 
-        // Retorna o campo em formato JSON
         return response()->json($campo);
     }
 
@@ -64,14 +59,11 @@ class CampoController extends Controller
         $request->validate([
             'nome' => 'string',
             'rotulo' => 'string',
-            'formularioId' => 'integer', // Renomeado para conformar com o nome do campo no request
-            'tipoCampoId' => 'integer', // Renomeado para conformar com o nome do campo no request
+            'formularioId' => 'integer',
+            'tipoCampoId' => 'integer',
         ]);
 
-        // Busca um campo específico pelo ID
         $campo = Campo::find($id);
-
-        // Verifica se o campo foi encontrado
         if (!$campo) {
             return response()->json(['mensagem' => 'Campo não encontrado'], 404);
         }
@@ -95,18 +87,11 @@ class CampoController extends Controller
 
     public function destroy($id)
     {
-        // Busca um campo específico pelo ID
         $campo = Campo::find($id);
-
-        // Verifica se o campo foi encontrado
         if (!$campo) {
             return response()->json(['mensagem' => 'Campo não encontrado'], 404);
         }
-
-        // Exclui o campo do banco de dados
         $campo->delete();
-
-        // Retorna uma resposta de sucesso
         return response()->json(['mensagem' => 'Campo excluído com sucesso!']);
     }
 
