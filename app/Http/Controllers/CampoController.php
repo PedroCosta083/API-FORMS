@@ -76,7 +76,6 @@ class CampoController extends Controller
             return response()->json(['mensagem' => 'Campo não encontrado'], 404);
         }
         $tipoCampoAntigo = $campo->tipos_campos_id;
-
         // Atualiza os dados do campo
         $campo->update([
             'nome' => $request->nome,
@@ -86,12 +85,10 @@ class CampoController extends Controller
         ]);
 
         // exclua as opções de campo relacionadas ao tipo de campo antigo
-        $tiposQueExcluemOpcoes = ['1','5','7'];
+        $tiposQueExcluemOpcoes = ['1', '5', '7'];
         if (in_array($request->tipoCampoId, $tiposQueExcluemOpcoes)) {
             $campo->opcoesCampos()->delete();
         }
-
-        // Retorna uma resposta de sucesso
         return response()->json(['mensagem' => 'Campo atualizado com sucesso!', 'campo' => $campo]);
     }
 
