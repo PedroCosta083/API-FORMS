@@ -10,14 +10,6 @@ class CampoController extends Controller
 {
     public function create(Request $request)
     {
-        // Validando os dados recebidos
-        $request->validate([
-            'nome' => 'required|string',
-            'rotulo' => 'required|string',
-            'formularioId' => 'required|integer', // Renomeado para conformar com o nome do campo no request
-            'tipoCampoId' => 'required|integer', // Renomeado para conformar com o nome do campo no request
-        ]);
-
         // Criando um novo campo com os dados recebidos
         $campo = Campo::create([
             'nome' => $request->nome,
