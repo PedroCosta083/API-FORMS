@@ -8,12 +8,6 @@ use App\Models\TipoCampo;
 
 class CampoController extends Controller
 {
-
-    public function __construct()
-    {
-        // Não é necessário passar instâncias dos modelos como parâmetros no construtor
-    }
-
     public function create(Request $request)
     {
         // Validando os dados recebidos
