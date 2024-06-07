@@ -13,7 +13,7 @@ return new class extends Migration {
         Schema::create('formularios', function (Blueprint $table) {
             $table->id();
             $table->string('titulo');
-            $table->string('descrição')->nullable();
+            $table->string('descricao')->nullable();
             $table->timestamps();
         });
     }

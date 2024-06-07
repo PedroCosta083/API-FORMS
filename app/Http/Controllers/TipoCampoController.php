@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\TipoCampo;
+
 class TipoCampoController extends Controller
 {
     public function create(Request $request)

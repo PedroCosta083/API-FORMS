@@ -13,7 +13,7 @@ return new class extends Migration {
         Schema::create('tipos_campos', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->string('descrição')->nullable();
+            $table->string('descricao')->nullable();
             $table->timestamps();
         });
     }

@@ -8,17 +8,12 @@ class OpcaoCampo extends Model
 {
     protected $table = 'opcoes_campos';
     protected $hidden = [
-        'update_at',
+        'updated_at',
         'created_at',
         'campoRelationship'
     ];
 
-    protected $appends = [
-        'valor',
-        'rotulo',
-        'campos_id'
-    ];
-
+    // ----------------------------------------------------------------------------------------------------//
     public function campoRelationship()
     {
         return $this->belongsTo(Campo::class, 'tipos_campos_id');
@@ -28,6 +23,14 @@ class OpcaoCampo extends Model
     {
         return $this->campoRelationship;
     }
+    public function setCampoAttribute($value)
+    {
+        if (isset($value)) {
+            $this->attributes['campos_id'] = Campo::where('id', $value)->first()->id;
+        }
+    }
+
+
 
 
 

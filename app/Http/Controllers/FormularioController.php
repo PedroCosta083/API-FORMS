@@ -3,16 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Formulario;
 
 class FormularioController extends Controller
 {
     public function create(Request $request)
     {
-        // Validando os dados recebidos
-        $request->validate([
-            'titulo' => 'required|string',
-            'descricao' => 'string',
-        ]);
         $formulario = Formulario::create([
             'titulo' => $request->nome,
             'descricao' => $request->descricao,
@@ -37,12 +33,6 @@ class FormularioController extends Controller
     }
     public function update(Request $request, $id)
     {
-        // Validando os dados recebidos
-        $request->validate([
-            'nome' => 'string',
-            'descricao' => 'string',
-        ]);
-
         $formulario = formulario::find($id);
         if (!$formulario) {
             return response()->json(['mensagem' => 'Formulario não encontrado'], 404);

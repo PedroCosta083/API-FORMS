@@ -8,15 +8,11 @@ class TipoCampo extends Model
 {
     protected $table = 'tipos_campos';
     protected $hidden = [
-        'update_at',
+        'updated_at',
         'created_at',
         'campoRelationship'
     ];
 
-    protected $appends = [
-        'nome',
-        'descricao'
-    ];
 
     public function campoRelationship()
     {
