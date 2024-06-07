@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Formulario extends Model
 {
     protected $hidden = [
-        'update_at', 
+        'update_at',
         'created_at',
         'campoRelationship',
-  
+
     ];
 
     protected $appends = [
@@ -22,7 +22,7 @@ class Formulario extends Model
         return $this->hasMany(Campo::class, 'formularios_id');
     }
 
-    public function getCampoAttributes($value){
+    public function getCampoAttributes(){
         return $this->campoRelationship;
     }
 

@@ -7,13 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class TipoCampo extends Model
 {
     protected $hidden = [
-        'update_at', 
+        'update_at',
         'created_at',
         'campoRelationship'
     ];
 
     protected $appends = [
-        'nome', 
+        'nome',
         'descricao'
     ];
 
@@ -24,6 +24,11 @@ class TipoCampo extends Model
     public function getCampoAttribute(){
         return $this->campoRelationship;
     }
+    
+    DB::table('tipos_campos')->insert([
+        'nome' => 'Texto',
+        'descricao' => 'Campo de texto'
+    ]);
 
 
 
