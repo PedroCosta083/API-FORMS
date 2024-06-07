@@ -7,38 +7,47 @@ use Illuminate\Database\Eloquent\Model;
 class Campo extends Model
 {
     protected $hidden = [
-        'update_at', 
+        'update_at',
         'created_at',
         'formularioRelationship',
-        'tipocampoRelationship'
+        'tipocampoRelationship',
+        'opcaocampoRelationship'
     ];
 
     protected $appends = [
-        'nome', 
-        'rotulo'
+        'nome',
+        'rotulo',
+        'formularios_id',
+        'tipos_campos_id'
     ];
 
-    public function formularioRelationship(){
+    public function formularioRelationship()
+    {
         return $this->belongsTo(Formulario::class, 'formularios_id');
     }
 
-    public function getFormularioAttributes(){
+    public function getFormularioAttributes()
+    {
         return $this->formularioRelationship;
     }
 
-    public function tipocampoRelationship(){
+    public function tipocampoRelationship()
+    {
         return $this->belongsTo(TipoCampo::class, 'tipos_campos_id');
     }
 
-    public function getTipoCampoAttribute(){
+    public function getTipoCampoAttribute()
+    {
         return $this->tipocampoRelationship;
     }
 
-    public function opcaocampoRelationship(){
+    public function opcaocampoRelationship()
+    {
         return $this->hasMany(OpcaoCampo::class, 'campos_id');
     }
 
-    public function getOpcaoCampoAttrubute(){
+    public function getOpcaoCampoAttrubute()
+    {
         return $this->opcaocampoRelationship;
     }
 }

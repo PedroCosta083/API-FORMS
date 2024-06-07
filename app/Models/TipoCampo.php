@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class TipoCampo extends Model
 {
+    protected $table = 'tipos_campos';
     protected $hidden = [
         'update_at',
         'created_at',
@@ -17,15 +18,17 @@ class TipoCampo extends Model
         'descricao'
     ];
 
-    public function campoRelationship(){
+    public function campoRelationship()
+    {
         return $this->hasMany(Campo::class, 'tipos_campos_id');
     }
 
-    public function getCampoAttribute(){
+    public function getCampoAttribute()
+    {
         return $this->campoRelationship;
     }
 
-    protected $table = 'tipos_campos';
+
 
 
 

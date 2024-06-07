@@ -18,11 +18,13 @@ class Formulario extends Model
         'descricao'
     ];
 
-    public function campoRelationship(){
+    public function campoRelationship()
+    {
         return $this->hasMany(Campo::class, 'formularios_id');
     }
 
-    public function getCampoAttributes(){
+    public function getCampoAttributes()
+    {
         return $this->campoRelationship;
     }
 
