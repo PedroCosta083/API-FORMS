@@ -49,6 +49,12 @@ class TipoCampoSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+            [
+                'nome' => 'file',
+                'descricao' => 'Campo de entrada para arquivos',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]
         ]);
     }
 }
