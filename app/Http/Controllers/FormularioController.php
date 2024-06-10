@@ -2,28 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FormularioRequest;
 use Illuminate\Http\Request;
 use App\Models\Formulario;
 
 class FormularioController extends Controller
 {
-    public function __construct(Formulario $formularios)
+
+    public function create(FormularioRequest $request)
     {
-        $this->formularios = $formularios;
-    }
-    public function create(Request $request)
-    {
-        $formulario = Formulario::create([
-            'titulo' => $request->nome,
-            'descricao' => $request->descricao,
-        ]);
+        $formulario = Formulario::create($request->validated());
         return response()->json(['mensagem' => 'Formulario criado com sucesso!', 'formulario' => $formulario]);
     }
 
     public function getAll()
     {
         $formularios = Formulario::all();
-        //$formularios = $this->formularios->with('campoRelationship')->get();
         return response()->json($formularios);
     }
     public function getById($id)
@@ -36,17 +30,14 @@ class FormularioController extends Controller
 
         return response()->json($formulario);
     }
-    public function update(Request $request, $id)
+    public function update(FormularioRequest $request, $id)
     {
         $formulario = formulario::find($id);
         if (!$formulario) {
             return response()->json(['mensagem' => 'Formulario não encontrado'], 404);
         }
 
-        $formulario->update([
-            'nome' => $request->nome,
-            'descricao' => $request->descricao,
-        ]);
+        $formulario->update($request->validated());
         return response()->json(['mensagem' => 'Formulario atualizado com sucesso!', 'formulario' => $formulario]);
     }
     public function destroy($id)
