@@ -10,9 +10,10 @@ class Formulario extends Model
         'updated_at',
         'created_at',
         'campoRelationship'
-
     ];
-    protected $appends = ['campo'];
+    protected $appends = [
+        'campo'
+    ];
     public function campoRelationship()
     {
         return $this->hasMany(Campo::class, 'formularios_id');

@@ -13,6 +13,7 @@ class OpcaoCampo extends Model
         'campoRelationship'
     ];
 
+    //protected $appends = ['campo'];
     // ----------------------------------------------------------------------------------------------------//
     public function campoRelationship()
     {

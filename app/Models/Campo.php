@@ -14,13 +14,15 @@ class Campo extends Model
         'opcaocampoRelationship'
     ];
 
+    protected $appends = ['tipocampo', 'opcaocampo'];
+
     // ----------------------------------------------------------------------------------------------------//
     public function formularioRelationship()
     {
         return $this->belongsTo(Formulario::class, 'formularios_id');
     }
 
-    public function getFormularioAttributes()
+    public function getFormularioAttribute()
     {
         return $this->formularioRelationship;
     }
@@ -54,7 +56,7 @@ class Campo extends Model
         return $this->hasMany(OpcaoCampo::class, 'campos_id');
     }
 
-    public function getOpcaoCampoAttrubute()
+    public function getOpcaocampoAttribute()
     {
         return $this->opcaocampoRelationship;
     }
