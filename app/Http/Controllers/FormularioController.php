@@ -7,6 +7,10 @@ use App\Models\Formulario;
 
 class FormularioController extends Controller
 {
+    public function __construct(Formulario $formularios)
+    {
+        $this->formularios = $formularios;
+    }
     public function create(Request $request)
     {
         $formulario = Formulario::create([
@@ -19,6 +23,7 @@ class FormularioController extends Controller
     public function getAll()
     {
         $formularios = Formulario::all();
+        //$formularios = $this->formularios->with('campoRelationship')->get();
         return response()->json($formularios);
     }
     public function getById($id)
